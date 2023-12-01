@@ -1,3 +1,7 @@
+import sys
+sys.path.append('C:/Users/oscar/Code/Bnanan/Python/algas/src')
+from algas.input import tokens
+from algas.spaces.vectors import V
 from collections import defaultdict
 
 directions = {
@@ -19,11 +23,11 @@ def main(n=1):
     visited[tuple(rope[0])] = True
     for move, dist in read():
         os_x, os_y = directions[move]
-        for _ in range(int(dist)):  # Applying 1 step at a time
+        for _ in range(int(dist)):
             rope[0] = [rope[0][0] + os_x, rope[0][1] + os_y]
-            for i in range(1, len(rope)):  # Moving 1 knot at a time
+            for i in range(1, len(rope)):
                 head, tail = rope[i-1], rope[i]
-                if abs(head[0] - tail[0]) < 2 and abs(head[1] - tail[1]) < 2:  # skip if neighbour
+                if abs(head[0] - tail[0]) < 2 and abs(head[1] - tail[1]) < 2:
                     continue
 
                 for k in (0, 1):

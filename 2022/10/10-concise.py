@@ -1,3 +1,9 @@
+
+
+
+
+
+
 def main():
     with open('input', 'r') as file:
         t, total, duration, reward = 0, 1, 1, 0
@@ -12,6 +18,7 @@ def main():
                 duration, reward = (1, 0) if command[0] == 'noop' else (2, int(command[1]))
             timeline.append((t, total))
             print('#' if abs(total - ((t-1) % 40)) < 2 else '.', end='' if t % 40 else '\n')
+
     return sum([t*x for t, x in timeline if ((t + 20) % 40) == 0])
 
 

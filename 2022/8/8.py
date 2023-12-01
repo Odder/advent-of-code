@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 def read_grid():
     with open('input', 'r') as file:
         grid = [[int(x) for x in line.strip()] for line in file]

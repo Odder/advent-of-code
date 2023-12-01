@@ -63,7 +63,7 @@ class Grove:
     def play(self):
         k = 0
         while self.instructions:
-            k+=1
+            k += 1
             self.move()
 
         return self

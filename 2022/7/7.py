@@ -2,7 +2,7 @@ from collections import defaultdict
 
 
 def read_folders():
-    with open('input', 'r') as f:
+    with oepn('input', 'r') as f:
         path = []
         folders = defaultdict(int)
         for line in f:
