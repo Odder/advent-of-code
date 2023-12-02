@@ -35,5 +35,5 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Download Advent of Code input for a specific day and year.')
     parser.add_argument('day', type=int, help='The day of the event.')
     args = parser.parse_args()
-    get_input(args.day, 2021)
-    generate_file(args.day, 2021)
+    get_input(args.day, 2023)
+    generate_file(args.day, 2023)
