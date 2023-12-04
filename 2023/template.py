@@ -1,9 +1,8 @@
-import sys
-sys.path.append('C:/Users/oscar/Code/Bnanan/Python/algas/src')
-from algas.ranges import Range
-from algas.lists import top_n, group, divide, grouping
-from algas.input import tokens, lines, tokens_filter, tokens_split, ints
-from aoc.aoc import part1, part2,part1and2
+from algas.input import lines
+from algas.spaces.s2 import neighbours, directions_all
+from algas.aoc.aoc import part1, part2, part1and2
+import re
+import math
 
 
 @part1(42)
