@@ -12,3 +12,7 @@ def main(extra_digits):
         digits = re.findall(rf'(?=({"|".join(extra_digits)}))', line)
         total += int(d_map[digits[0]]) * 10 + int(d_map[digits[-1]])
     return total
+
+
+if __name__ == '__main__':
+    pass
