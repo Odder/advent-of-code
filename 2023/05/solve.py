@@ -2,9 +2,10 @@ from algas.input import lines
 from algas.lists import group
 from algas.aoc.aoc import part1, part2
 from algas.ranges import Range, simplify
+from itertools import batched
 
 
-@part2(lambda seeds: [Range(seeds[2*i], seeds[2*i] + seeds[2*i+1]) for i in range(len(seeds) // 2)])
+@part2(lambda seeds: [Range(a, a+b) for a, b in batched(seeds, n=2)])
 @part1(lambda seeds: [Range(seed, seed) for seed in seeds])
 def solve2(parse_seeds):
     groups = list(group(lines(), ''))
@@ -34,7 +35,7 @@ def solve2(parse_seeds):
             i += int(c > seeds[i].right)
             j += int(j < len(ranges) and ranges[j][0].right < c)
 
-        seeds = list(simplify(sorted(dist)))
+        seeds = list(simplify(dist, sorted=False))
     return min([x.left for x in seeds])
 
 
