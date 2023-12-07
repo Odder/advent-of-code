@@ -35,7 +35,7 @@ def solve2(parse_seeds):
             i += int(c > seeds[i].right)
             j += int(j < len(ranges) and ranges[j][0].right < c)
 
-        seeds = list(simplify(dist, sorted=False))
+        seeds = list(simplify(sorted(dist)))
     return min([x.left for x in seeds])
 
 
