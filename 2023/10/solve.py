@@ -1,6 +1,7 @@
 from algas.input import lines
 from algas.spaces.s2 import neighbours, directions_side, diagonals
 from algas.aoc.aoc import part1and2
+from algas.search import DFS
 from collections import deque
 
 
@@ -31,11 +32,9 @@ def solve1():
 
     # DFS + path (path is memory intense... sorry)
     seen = {}
-    q = deque([(start, 0, [start])])
     longest = 2
-    path_grid = [[0 for j in range(len(grid[i]))] for i in range(len(grid))]
-    while q:
-        (i, j), depth, path = q.pop()
+    path_grid = [[0 for _ in range(len(grid[i]))] for i in range(len(grid))]
+    for q, (i, j), depth, path in DFS((start, 0, [start])):
         if (i, j) in seen:
             continue
         seen[(i, j)] = min(depth, seen.get((i, j), 999999999))
