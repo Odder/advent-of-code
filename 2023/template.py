@@ -1,8 +1,12 @@
-from algas.input import lines
-from algas.spaces.s2 import neighbours, directions_all
+from algas.input import lines, tokens
+from algas.spaces.s2 import neighbours, directions_all, indices, in_bounds, rotate
+from algas.misc import Cyclic
 from algas.aoc.aoc import part1, part2, part1and2
+from functools import cache
+from collections import Counter, defaultdict, deque
 import re
 import math
+
 
 
 @part1(42)
