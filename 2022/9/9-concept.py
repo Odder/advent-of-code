@@ -1,8 +1,6 @@
-import sys
-sys.path.append('C:/Users/oscar/Code/Bnanan/Python/algas/src')
 from algas.input import tokens
 from algas.spaces.vectors import V
-from aoc.aoc import part1, part2
+from algas.aoc.aoc import part1, part2
 
 
 directions = {
@@ -24,8 +22,11 @@ def main(n):
             rope[0] += v
             for i in range(1, len(rope)):
                 diff_v = rope[i] - rope[i-1]
-
-                if not(V((-2, -2)) < diff_v < V((2, 2))):
+                if not (V((-2, -2)) < diff_v < V((2, 2))):
                     rope[i] -= diff_v.normalise()
             visited |= {str(rope[-1].data)}
     return len(visited)
+
+
+if __name__ == '__main__':
+    pass

@@ -33,9 +33,7 @@ def neighbours(coord):
 def search(start, goal):
     q = [(0, start)]
     dist = defaultdict(int)
-    cameFrom = defaultdict(int)
     dist[start] = 0
-    cameFrom[start] = 0
 
     while q:
         _, cand = heapq.heappop(q)
@@ -47,7 +45,6 @@ def search(start, goal):
             if neigh not in dist or new_dist < dist[neigh]:
                 dist[neigh] = new_dist
                 heapq.heappush(q, (new_dist, neigh))
-                cameFrom[neigh] = neigh
 
 
 def part1():
