@@ -7,7 +7,7 @@ from collections import defaultdict
 
 @part2(4, 10)
 @part1(0, 3)
-def solve2(lower, upper):
+def solve(lower, upper):
     grid = [[int(x) for x in line] for line in lines()]
     start = (0, 0)
     end = (len(grid)-1, len(grid[0])-1)
@@ -17,14 +17,14 @@ def solve2(lower, upper):
         if (x, y) == end:
             return dist
         for direction in directions_side:
-            if direction == prev or direction[0] == -1*prev[0] and direction[1] == -1*prev[1]:
+            if direction == prev or direction == (-prev[0], -prev[1]):
                 continue
             heat_loss = 0
             for i in range(1, upper + 1):
                 ox = x + direction[0]*i
                 oy = y + direction[1]*i
                 if not in_bounds(grid, ox, oy):
-                    continue
+                    break
                 heat_loss += grid[ox][oy]
                 state = (ox, oy, prev)
                 if i >= lower and (state not in dists or dist + heat_loss < dists[state]):
