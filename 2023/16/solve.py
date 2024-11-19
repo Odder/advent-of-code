@@ -1,7 +1,7 @@
-from algas.input import lines
-from algas.spaces.s2 import in_bounds, traverse
-from algas.search import BFS
-from algas.aoc.aoc import part1and2
+from aoc.input import lines
+from algs.spaces.s2 import in_bounds, traverse
+from algs.search import BFS
+from aoc.aoc import part1and2
 
 
 def solve(grid, start):

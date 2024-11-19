@@ -14,6 +14,7 @@ def solve1(p1, p2):
             f, b = s[0] - f, s[-1] + b
         p1 += b
         p2 += f
+        break
     return p1, p2
 
 

@@ -3,8 +3,8 @@ from algas.aoc.aoc import part1, part2
 import re
 
 
-@part2(['\d', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'zero'])
-@part1(['\d'])
+@part2(['\\d', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'zero'])
+@part1(['\\d'])
 def main(extra_digits):
     d_map = {str(key): i % 10 for i, key in enumerate(list(range(1, 10)) + extra_digits)}
     total = 0
