@@ -32,6 +32,15 @@ def lines(file='input'):
         for line in f:
             yield line.strip()
 
+def grouped_lines(file='input'):
+    group = []
+    for line in lines():
+        if not line:
+            yield group
+            group = []
+        group.append(line)
+    yield group
+
 
 def tokens(modifier=str, file='input'):
     """
@@ -76,6 +85,10 @@ def tokens(modifier=str, file='input'):
 
 def tokens_filter(modifier=str, regex=' ', file='input'):
     return ((modifier(x) for x in findall(regex, line)) for line in lines(file=file))
+
+
+def tokens_pattern(regex=' ', file='input'):
+    return (findall(regex, line)[0] for line in lines(file=file))
 
 
 def tokens_split(modifier=str, splitter=' ', file='input'):
