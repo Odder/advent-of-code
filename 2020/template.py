@@ -1,5 +1,5 @@
 from collections import defaultdict, deque
-from aoc.input import lines, grouped_lines, tokens_filter, tokens_pattern
+from aoc.input import ints, lines, grouped_lines, tokens_filter, tokens_pattern
 from aoc.aoc import part1, part2, part1and2, part1and2yield
 
 
