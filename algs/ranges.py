@@ -9,6 +9,8 @@ class Range:
             return Range(self.left + other, self.right + other)
 
     def __contains__(self, other):
+        if isinstance(other, int):
+            return self.left <= other <= self.right
         return self.left <= other.left and self.right >= other.right
 
     def __and__(self, other):
