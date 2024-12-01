@@ -14,6 +14,7 @@ def endpoint(day, year=2023):
 def get_input(day, year=2023):
     url = f'https://adventofcode.com/{year}/day/{day}/input'
     print(url)
+    print(url[:-6])
     response = requests.get(url, cookies=cookies)
 
     if response.status_code != 200:
