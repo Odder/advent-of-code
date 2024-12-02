@@ -92,7 +92,7 @@ def tokens_pattern(regex=' ', file='input'):
 
 
 def tokens_split(modifier=str, splitter=' ', file='input'):
-    return ((modifier(x) for x in line.split(splitter)) for line in lines(file=file))
+    return ([modifier(x) for x in line.split(splitter)] for line in lines(file=file))
 
 
 def ints(file='input'):
