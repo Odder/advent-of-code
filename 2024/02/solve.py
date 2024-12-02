@@ -1,8 +1,6 @@
 from itertools import pairwise
-
 from aoc.input import tokens_split
 from aoc.aoc import part1and2
-
 
 def safe(L):
     direction = 1 if L[1] > L[0] else -1
@@ -14,7 +12,7 @@ def safe(L):
     return True
 
 @part1and2()
-def solve1():
+def solve():
     p1 = 0
     p2 = 0
     for line in tokens_split(modifier=int):

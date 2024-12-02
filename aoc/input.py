@@ -80,7 +80,7 @@ def tokens(modifier=str, file='input'):
     12
     ```
     """
-    return ((modifier(x) for x in line.split()) for line in lines(file=file))
+    return ([modifier(x) for x in line.split()] for line in lines(file=file))
 
 
 def tokens_filter(modifier=str, regex=' ', file='input'):
