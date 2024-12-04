@@ -5,6 +5,8 @@ from aoc.aoc import part1, part2, part1and2, part1and2yield
 
 @part1()
 def solve1():
+    for line in lines():
+        line
     return 0
 
 
