@@ -3,8 +3,11 @@ This module gives you a collection of tools to parse input from an input file.
 """
 from re import findall
 
+def nums(s):
+    return [int(x) for x in findall(r'\d+', s)]
 
-def lines(file='input'):
+
+def lines(file='input', mod=str):
     """
     return a generator that iterates over every line of a file while removing EOL markers.
     no parsing is going on and every line will be returned as a string
@@ -30,7 +33,7 @@ def lines(file='input'):
     """
     with open(file, 'r') as f:
         for line in f:
-            yield line.strip()
+            yield mod(line.strip())
 
 def grouped_lines(file='input'):
     group = []
