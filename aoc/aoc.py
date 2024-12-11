@@ -1,5 +1,6 @@
 from time import perf_counter
 from importlib import import_module
+import pyperclip
 
 
 def part1(*dec_args, **dec_kwargs):
@@ -8,6 +9,8 @@ def part1(*dec_args, **dec_kwargs):
         result = func(*dec_args, **dec_kwargs)
         end = perf_counter()
         print(f'Part 1: {result} in {1000*(end-start):.3f}ms')
+        if result:
+            pyperclip.copy(result)
 
         def wrapper(*args, **kwargs):
             return func(*args, **kwargs)
@@ -21,6 +24,8 @@ def part2(*dec_args, **dec_kwargs):
         result = func(*dec_args, **dec_kwargs)
         end = perf_counter()
         print(f'Part 2: {result} in {1000*(end-start):.3f}ms')
+        if result:
+            pyperclip.copy(result)
 
         def wrapper(*args, **kwargs):
             return func(*args, **kwargs)
@@ -37,6 +42,10 @@ def part1and2(*dec_args, **dec_kwargs):
         end = perf_counter()
         print(f'Part 1: {result1} in {1000*(end-start):.3f}ms')
         print(f'Part 2: {result2} in 0s')
+        if result1:
+            pyperclip.copy(result1)
+        if result2:
+            pyperclip.copy(result2)
 
         def wrapper(*args, **kwargs):
             return func(*args, **kwargs)
@@ -53,10 +62,14 @@ def part1and2yield(*dec_args, **dec_kwargs):
         result = next(gen)
         end = perf_counter()
         print(f'Part 1: {result} in {1000*(end-start):.3f}ms')
+        if result:
+            pyperclip.copy(result)
         start = perf_counter()
         result = next(gen)
         end = perf_counter()
         print(f'Part 2: {result} in {1000*(end-start):.3f}ms')
+        if result:
+            pyperclip.copy(result)
 
         def wrapper(*args, **kwargs):
             return func(*args, **kwargs)
