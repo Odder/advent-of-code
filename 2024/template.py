@@ -7,10 +7,10 @@ from algs.search import BFS, DFS, PFS
 
 
 @part1()
-def solve1():
+def solve1(ans=0):
     for line in lines():
         line
-    return 0
+    return ans
 
 
 @part2()
