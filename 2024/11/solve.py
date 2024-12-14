@@ -2,9 +2,9 @@ from collections import defaultdict as dd
 from aoc.input import tokens
 from aoc.aoc import part1, part2
 
-@part2(75)
+@part2(1000)
 @part1(25)
-def solve1(its):
+def solve(its):
     stones = {stone: 1 for stone in tokens(int)[0]}
     for _ in range(its):
         new = dd(int)

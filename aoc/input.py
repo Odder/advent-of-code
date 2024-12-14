@@ -41,7 +41,8 @@ def grouped_lines(file='input'):
         if not line:
             yield group
             group = []
-        group.append(line)
+        else:
+            group.append(line)
     yield group
 
 
