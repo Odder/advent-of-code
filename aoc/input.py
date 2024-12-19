@@ -4,7 +4,7 @@ This module gives you a collection of tools to parse input from an input file.
 from re import findall
 
 def nums(s):
-    return [int(x) for x in findall(r'\d+', s)]
+    return [int(x) for x in findall(r'-?\d+', s)]
 
 
 def lines(file='input', mod=str):
@@ -35,14 +35,19 @@ def lines(file='input', mod=str):
         for line in f:
             yield mod(line.strip())
 
-def grouped_lines(file='input'):
+def grouped_lines(*mods, file='input'):
     group = []
+    group_idx = 0
     for line in lines():
         if not line:
             yield group
             group = []
         else:
-            group.append(line)
+            if len(mods) > group_idx:
+                group.append(mods[group_idx](line))
+            else:
+                group.append(line)
+            group_idx += 1
     yield group
 
 

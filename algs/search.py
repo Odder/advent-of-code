@@ -44,11 +44,14 @@ class BFS:
 
 class PFS:
     def __init__(self, start):
+        self.items = dict()
+        self.key = 0
+        self.heap = []
         if isinstance(start, list):
-            self.heap = start
+            for score, item in start:
+                self.append(score, item)
         else:
-            self.heap = [start]
-        self.heap = [start]
+            self.append(*start)
 
     def __iter__(self):
         return self
@@ -57,10 +60,13 @@ class PFS:
         if not self.heap:
             raise StopIteration
 
-        return self, *heapq.heappop(self.heap)
+        score, key = heapq.heappop(self.heap)
+        return self, score, self.items[key]
 
-    def append(self, item):
-        heapq.heappush(self.heap, item)
+    def append(self, score, item):
+        heapq.heappush(self.heap, (score, self.key))
+        self.items[self.key] = item
+        self.key += 1
 
 
 if __name__ == '__main__':

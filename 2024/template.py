@@ -1,15 +1,16 @@
-from collections import defaultdict, deque
+from collections import deque
+from collections import defaultdict as dd
 
-from algs.spaces.imaginary_s2 import load_grid
-from aoc.input import ints, lines, grouped_lines, tokens_filter, tokens_pattern
+from algs.spaces.imaginary_s2 import load_grid, indices
+from algs.lists import lmap, cnt
+from aoc.input import ints, lines, grouped_lines, tokens_filter, tokens_pattern, nums
 from aoc.aoc import part1, part2, part1and2, part1and2yield
 from algs.search import BFS, DFS, PFS
 
 
 @part1()
 def solve1(ans=0):
-    for line in lines():
-        line
+
     return ans
 
 
@@ -43,6 +44,10 @@ def examples():
     grid = load_grid(lines(), int)
 
     for q, pos, depth in BFS((2, 0)):
+        pass
+
+    for q, score, pos, depth in PFS((0, (2, 0))):
+        q.append(score, (pos, depth))
         pass
 
 if __name__ == '__main__':

@@ -6,6 +6,9 @@ from math import ceil
 from typing import Iterator, Union
 
 
+lmap = lambda f, it: list(map(f, it))
+cnt = lambda it: sum(1 for x in it if x)
+
 def group(it: list[object], splitter: object = None) -> Iterator[list[object]]:
     """
     Groups items within an iterator into lists using a separator element.
@@ -32,6 +35,12 @@ def group(it: list[object], splitter: object = None) -> Iterator[list[object]]:
         else:
             grp.append(x)
     yield grp
+
+def flatten(it):
+    out = []
+    for x in it:
+        out.extend(x)
+    return out
 
 
 def divide(it, slices=2):
