@@ -2,6 +2,7 @@
 This module gives you a collection of tools to handle iterables.
 """
 import heapq
+from itertools import islice
 from math import ceil
 from typing import Iterator, Union
 
@@ -42,6 +43,10 @@ def flatten(it):
         out.extend(x)
     return out
 
+def nwise(it, n=2, rev=False):
+    if not rev:
+        return zip(*[islice(it, i, None) for i in range(n)])
+    return zip(*[islice(list(it)[::-1], i, None) for i in range(n)][::-1])
 
 def divide(it, slices=2):
     """
@@ -124,7 +129,7 @@ if __name__ == '__main__':
     assert [len(x) for x in divide([1, 2, 3], 2)] == [2, 1]
     assert [len(x) for x in divide([1, 2, 3, 4, 5, 6, 7, 8], 3)] == [3, 3, 2]
     print([len(x) for x in divide([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], 4)])
-    assert [len(x) for x in divide([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], 4)] == [3, 3, 2]
+    assert [len(x) for x in divide([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], 4)] == [4, 4, 4, 3]
 
     print(list(divide([1,2,3,4,5,6,7,8,9], 2)))
     print(list(divide([1,2,3,4,5,6,7,8,9], 3)))
@@ -138,5 +143,9 @@ if __name__ == '__main__':
     print(list(top_n([1,2,3,4,5,6,7,8,9], 3)))
     print(list(top_n([9,8,7,6,5,4,3,2,1], 1)))
     print(list(top_n([9,8,7,6,5,4,3,2,1], 3)))
+
+    print('-----')
+    for x in nwise([1, 2, 3, 4, 5, 6, 7, 8, 9], 5, rev=True):
+        print(x)
 
 

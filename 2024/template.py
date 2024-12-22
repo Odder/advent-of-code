@@ -38,6 +38,8 @@ def examples():
         for line in group:
             pass
 
+    [towels], patterns = grouped_lines(lambda x: x.split(', '))
+
     for key, value in tokens_pattern(regex=r'(\d+): (.+)'):
         pass
 
